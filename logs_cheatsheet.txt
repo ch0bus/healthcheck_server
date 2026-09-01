@@ -1,0 +1,125 @@
+Шпаргалка по анализу логов в Linux
+=================================
+
+## 1. journalctl — системный журнал (systemd)
+
+### Базовые команды
+
+```bash
+journalctl                # все логи с начала ведения
+journalctl -b             # логи только текущей загрузки
+journalctl -b -1          # предыдущая загрузка
+journalctl -f             # "tail" для journalctl (онлайн‑просмотр)
+journalctl --since today  # с начала текущего дня
+journalctl --since "2024-01-01" --until "2024-01-02 03:00"
+```
+
+### Фильтрация по сервису, юниту, приоритету
+
+```bash
+journalctl -u nginx             # логи сервиса nginx
+journalctl -u nginx -f          # следить за логами nginx в реальном времени
+journalctl -u ssh --since -1h   # ssh за последний час
+
+journalctl -p err -b            # только ошибки текущей загрузки
+journalctl -p warning..alert -b # предупреждения и выше
+```
+
+### Фильтрация по полям
+
+```bash
+journalctl _PID=1234
+journalctl _UID=1000
+journalctl SYSLOG_IDENTIFIER=cron
+```
+
+---
+
+## 2. Классические текстовые логи
+
+Обычно лежат в `/var/log`:
+
+- `/var/log/syslog` или `/var/log/messages` — общесистемные логи
+- `/var/log/auth.log` — авторизация и ssh
+- `/var/log/kern.log` — ядро
+
+### Просмотр
+
+```bash
+tail -n 100 /var/log/syslog
+.tail -F /var/log/syslog
+less +G /var/log/syslog
+```
+
+### Поиск по шаблону
+
+```bash
+grep -i "error" /var/log/syslog
+zgrep -i "oom" /var/log/syslog.1.gz
+
+# найти строки вокруг совпадения
+grep -i -C3 "failed" /var/log/auth.log
+```
+
+---
+
+## 3. nginx
+
+Пути по умолчанию (могут отличаться в разных дистрибутивах):
+
+- `/var/log/nginx/access.log`
+- `/var/log/nginx/error.log`
+
+Примеры:
+
+```bash
+tail -F /var/log/nginx/error.log
+
+# 10 самых частых 404
+awk '$9 == 404 {print $7}' /var/log/nginx/access.log | sort | uniq -c | sort -nr | head
+
+# 10 самых "шумных" IP
+awk '{print $1}' /var/log/nginx/access.log | sort | uniq -c | sort -nr | head
+```
+
+---
+
+## 4. PostgreSQL
+
+Часто логи в `/var/log/postgresql/` или внутри `PGDATA`.
+
+```bash
+ls /var/log/postgresql
+
+# следить за логом
+.tail -F /var/log/postgresql/postgresql-*.log
+
+# искать ошибки
+.grep -i "ERROR" /var/log/postgresql/postgresql-*.log
+```
+
+Полезные параметры в `postgresql.conf`:
+
+- `log_min_duration_statement`
+- `log_statement`
+- `log_line_prefix`
+
+---
+
+## 5. rsyslog и ротация логов
+
+Конфиги rsyslog:
+
+- `/etc/rsyslog.conf`
+- `/etc/rsyslog.d/*.conf`
+
+Ротация логов настраивается в:
+
+- `/etc/logrotate.conf`
+- `/etc/logrotate.d/*`
+
+Проверка:
+
+```bash
+logrotate -d /etc/logrotate.conf  # тестовый прогон, без изменений
+```

@@ -3,12 +3,24 @@
 Набор шпаргалок и мини‑гайдов по администрированию Linux и быстрой диагностике проблем
 на рабочих станциях и серверах (включая VPS).
 
+## Оглавление
+
+- [Структура репозитория](#структура-репозитория)
+- [Быстрая проверка состояния сервера](#быстрая-проверка-состояния-сервера)
+- [Расширенная диагностика VPS](#расширенная-диагностика-vps)
+- [Поиск и устранение «прожорливых» процессов](#поиск-и-устранение-прожорливых-процессов)
+- [Индекс команд](#индекс-команд)
+- [Планы по развитию](#планы-по-развитию)
+
 ## Структура репозитория
 
 - `server_helthcheck_quick.txt` — супер‑краткая памятка по проверке состояния сервера.
 - `server_helthcheck_full.txt` — расширенный чек‑лист для диагностики VPS/сервера.
 - `seek_and_destroy.txt` — разбор реального кейса с «прожорливым» процессом
   `io.elementary.appcenter` и общий алгоритм поиска и удаления проблемных процессов/пакетов.
+- `logs_cheatsheet.txt` — шпаргалка по анализу логов.
+- `realtime_monitoring_cheatsheet.txt` — шпаргалка по мониторингу в реальном времени.
+- `common_incidents_cheatsheet.txt` — шпаргалка по типовым инцидентам.
 
 ---
 
@@ -208,10 +220,96 @@ sudo systemctl disable СЛУЖБА
 
 ---
 
+## Индекс команд
+
+### Системное состояние
+
+- `uptime`
+- `top`
+- `htop`
+- `free -h`
+- `vmstat`
+
+### Диски и файловые системы
+
+- `df -hT`
+- `df -ih`
+- `du -xhd1 / | sort -h`
+- `du -xhd1 /var | sort -h`
+- `iostat -x`
+- `ls /var/log`
+
+### Процессы
+
+- `ps aux --sort=-%cpu | head`
+- `ps aux --sort=-%mem | head`
+- `ps aux | awk '$4 > 5 {print $2, $4"%", $11}' | sort -k2 -rn`
+- `kill`, `kill -9`, `killall`
+- `which`
+
+### Сервисы и автозапуск
+
+- `systemctl --failed`
+- `systemctl list-units --type=service --state=running`
+- `systemctl status ИМЯ_СЕРВИСА`
+- `systemctl is-enabled ИМЯ_СЕРВИСА`
+- `systemctl --user list-unit-files | grep enabled`
+- `systemctl list-unit-files | grep enabled`
+- `systemctl --user disable СЛУЖБА`
+- `sudo systemctl disable СЛУЖБА`
+
+### Пакеты и зависимости (APT)
+
+- `dpkg -S /путь/к/файлу`
+- `apt show ПАКЕТ`
+- `apt-cache depends ПАКЕТ`
+- `apt-cache rdepends ПАКЕТ`
+- `apt-cache rdepends --no-recommends ПАКЕТ`
+- `sudo apt remove ПАКЕТ`
+- `sudo apt purge ПАКЕТ`
+- `sudo apt autoremove`
+- `sudo apt clean`
+
+### Сеть и DNS
+
+- `ss -tulpen`
+- `ss -s`
+- `ip -br addr`
+- `ip -s link`
+- `ping -c 4 1.1.1.1`
+- `ping -c 4 ДОМЕН`
+- `curl -I --max-time 10 URL`
+- `dig ДОМЕН`
+- `iftop`
+- `nload`
+
+### Логи и диагностика
+
+- `journalctl`
+- `journalctl -b`
+- `journalctl -p err -b`
+- `journalctl -p warning..alert -b`
+- `journalctl -u nginx`
+- `journalctl -u ИМЯ_СЕРВИСА -b`
+- `journalctl --since today`
+- `tail -F /var/log/syslog`
+- `grep`, `zgrep`
+- `less`
+- `dmesg -T --level=err,warn`
+- `logrotate -d /etc/logrotate.conf`
+
+### Аппаратные показатели
+
+- `sensors`
+- `sudo smartctl -a /dev/sda`
+- `iotop`
+
+---
+
 ## Планы по развитию
 
 - Добавить отдельные файлы‑шпаргалки по:
-  - анализу логов (`journalctl`, `rsyslog`, `nginx`, `postgresql` и др.);
-  - мониторингу в реальном времени (`htop`, `iotop`, `iftop`, `nload`);
-  - типовым инцидентам (переполненный диск, упавший nginx, проблемы с DNS и т.п.).
-- Перевести основные разделы на английский для удобства использования в международных командах.
+  - анализу логов (`journalctl`, `rsyslog`, `nginx`, `postgresql` и др.) → `logs_cheatsheet.txt`;
+  - мониторингу в реальном времени (`htop`, `iotop`, `iftop`, `nload`) → `realtime_monitoring_cheatsheet.txt`;
+  - типовым инцидентам (переполненный диск, упавший nginx, проблемы с DNS и т.п.) → `common_incidents_cheatsheet.txt`.
+- При необходимости — перевести основные разделы на английский для использования в международных командах.
