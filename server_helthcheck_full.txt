@@ -1,0 +1,102 @@
+Для быстрой оценки состояния VPS обычно используют такой набор:
+bash
+
+# Общая нагрузка
+uptime
+top
+free -h
+
+uptime показывает нагрузку за 1, 5 и 15 минут, top — процессы и CPU, free -h — оперативную память и swap.
+bash
+
+# Диски
+df -hT
+df -ih
+du -xhd1 / | sort -h
+
+Проверяют, не заполнены ли файловые системы и inode. Если место заканчивается — ищут крупные директории через du.
+bash
+
+# Процессы, потребляющие ресурсы
+ps aux --sort=-%cpu | head -10
+ps aux --sort=-%mem | head -10
+
+Показывает процессы с максимальной нагрузкой на процессор и память.
+bash
+
+# Сервисы
+systemctl --failed
+systemctl list-units --type=service --state=running
+systemctl status nginx
+
+Первая команда особенно полезна: она быстро показывает сломанные сервисы.
+bash
+
+# Сеть и порты
+ss -tulpen
+ss -s
+ip -br addr
+ip -s link
+
+Проверяют открытые порты, активные соединения, IP-адреса и счётчики сетевого трафика.
+bash
+
+# Доступность сети
+ping -c 4 1.1.1.1
+curl -I --max-time 10 https://example.com
+dig example.com
+
+Проверяют доступ в интернет, ответ веб-сервера и работу DNS.
+bash
+
+# Системные ошибки
+journalctl -p err -b
+journalctl -p warning..alert -b
+dmesg -T --level=err,warn
+
+Ищут ошибки текущей загрузки, предупреждения и проблемы ядра.
+bash
+
+# Логи сервисов
+journalctl -u nginx --since today
+journalctl -u nginx -f
+tail -F /var/log/syslog
+
+Используйте имя нужного сервиса вместо nginx.
+bash
+
+# Температура и состояние дисков
+sensors
+sudo smartctl -a /dev/sda
+
+На VPS эти команды могут быть недоступны из-за ограничений виртуализации, но на физическом сервере они полезны.
+
+Практическая быстрая проверка:
+bash
+
+uptime
+free -h
+df -hT
+systemctl --failed
+ss -tulpen
+journalctl -p err -b --no-pager
+
+Для более наглядного мониторинга в реальном времени обычно используют:
+bash
+
+htop
+iotop
+iftop
+nload
+
+Оптимальный минимальный набор для отдельной плитки:
+text
+
+uptime
+free -h
+df -hT
+systemctl --failed
+ps aux --sort=-%cpu | head
+ps aux --sort=-%mem | head
+ss -tulpen
+journalctl -p err -b
