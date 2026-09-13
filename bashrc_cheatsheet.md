@@ -1,6 +1,6 @@
 # Bash: `.bashrc`, профиль и настройка shell
 
-← [README](README.md) · основы: [linux_install_and_basics.md](linux_install_and_basics.md) · правка файлов: [vim_cheatsheet.md](vim_cheatsheet.md)
+← [README](README.md) · основы: [linux_install_and_basics.md](linux_install_and_basics.md) · SSH: [ssh_cheatsheet.md](ssh_cheatsheet.md) · vim: [vim_cheatsheet.md](vim_cheatsheet.md)
 
 **Bash** — стандартная оболочка на Ubuntu/Debian и многих VPS. Персональные настройки живут в домашнем каталоге; системные — в `/etc`.
 
@@ -220,7 +220,7 @@ sudo chmod 644 /etc/profile.d/mycompany.sh
 # быстрые ссылки на шпаргалки репозитория (если клонировали LinuxHelp)
 # alias linuxhelp='cd ~/LinuxHelp && ls *.md'
 
-# SSH agent (desktop; на сервере реже)
+# SSH agent (desktop) — см. ssh_cheatsheet.md §6
 # eval "$(ssh-agent -s)"
 # ssh-add ~/.ssh/id_ed25519
 

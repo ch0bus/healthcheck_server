@@ -100,7 +100,7 @@ hostname                     # имя машины в сети
 uname -a                     # ядро, архитектура, версия ОС
 ```
 
-- Настроить **SSH‑ключи** на сервере (`~/.ssh/authorized_keys`), отключить вход по паролю root (когда ключи работают).
+- Настроить **SSH** (ключи, `sshd`, firewall): [ssh_cheatsheet.md](ssh_cheatsheet.md).
 - **Firewall** (если используете ufw):
 
 ```bash
@@ -222,6 +222,8 @@ sudo lvs                     # logical volumes (логические тома п
 ssh user@host                # вход на удалённый хост (логин user, имя или IP host)
 ssh -p 2222 user@host        # нестандартный порт SSH
 ```
+
+Подробно: [ssh_cheatsheet.md](ssh_cheatsheet.md).
 
 ### Пути
 
