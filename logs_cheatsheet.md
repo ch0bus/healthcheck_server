@@ -1,7 +1,8 @@
-Шпаргалка по анализу логов в Linux
-=================================
+# Шпаргалка по анализу логов
 
-## 1. journalctl — системный журнал (systemd)
+← [README](README.md) · инциденты: [common_incidents_cheatsheet.md](common_incidents_cheatsheet.md)
+
+## 1. journalctl (systemd)
 
 ### Базовые команды
 
@@ -37,27 +38,25 @@ journalctl SYSLOG_IDENTIFIER=cron
 
 ## 2. Классические текстовые логи
 
-Обычно лежат в `/var/log`:
+Обычно в `/var/log`:
 
-- `/var/log/syslog` или `/var/log/messages` — общесистемные логи
-- `/var/log/auth.log` — авторизация и ssh
+- `/var/log/syslog` или `/var/log/messages` — общесистемные
+- `/var/log/auth.log` — авторизация и SSH
 - `/var/log/kern.log` — ядро
 
 ### Просмотр
 
 ```bash
 tail -n 100 /var/log/syslog
-.tail -F /var/log/syslog
+tail -F /var/log/syslog
 less +G /var/log/syslog
 ```
 
-### Поиск по шаблону
+### Поиск
 
 ```bash
 grep -i "error" /var/log/syslog
 zgrep -i "oom" /var/log/syslog.1.gz
-
-# найти строки вокруг совпадения
 grep -i -C3 "failed" /var/log/auth.log
 ```
 
@@ -65,12 +64,10 @@ grep -i -C3 "failed" /var/log/auth.log
 
 ## 3. nginx
 
-Пути по умолчанию (могут отличаться в разных дистрибутивах):
+Пути по умолчанию (могут отличаться):
 
 - `/var/log/nginx/access.log`
 - `/var/log/nginx/error.log`
-
-Примеры:
 
 ```bash
 tail -F /var/log/nginx/error.log
@@ -86,40 +83,23 @@ awk '{print $1}' /var/log/nginx/access.log | sort | uniq -c | sort -nr | head
 
 ## 4. PostgreSQL
 
-Часто логи в `/var/log/postgresql/` или внутри `PGDATA`.
+Логи часто в `/var/log/postgresql/` или в `PGDATA`.
 
 ```bash
 ls /var/log/postgresql
-
-# следить за логом
-.tail -F /var/log/postgresql/postgresql-*.log
-
-# искать ошибки
-.grep -i "ERROR" /var/log/postgresql/postgresql-*.log
+tail -F /var/log/postgresql/postgresql-*.log
+grep -i "ERROR" /var/log/postgresql/postgresql-*.log
 ```
 
-Полезные параметры в `postgresql.conf`:
-
-- `log_min_duration_statement`
-- `log_statement`
-- `log_line_prefix`
+Полезные параметры в `postgresql.conf`: `log_min_duration_statement`, `log_statement`, `log_line_prefix`.
 
 ---
 
-## 5. rsyslog и ротация логов
+## 5. rsyslog и ротация
 
-Конфиги rsyslog:
-
-- `/etc/rsyslog.conf`
-- `/etc/rsyslog.d/*.conf`
-
-Ротация логов настраивается в:
-
-- `/etc/logrotate.conf`
-- `/etc/logrotate.d/*`
-
-Проверка:
+- `/etc/rsyslog.conf`, `/etc/rsyslog.d/*.conf`
+- `/etc/logrotate.conf`, `/etc/logrotate.d/*`
 
 ```bash
-logrotate -d /etc/logrotate.conf  # тестовый прогон, без изменений
+logrotate -d /etc/logrotate.conf   # тестовый прогон, без изменений
 ```

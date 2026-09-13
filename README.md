@@ -9,24 +9,27 @@
 - [Быстрая проверка состояния сервера](#быстрая-проверка-состояния-сервера)
 - [Расширенная диагностика VPS](#расширенная-диагностика-vps)
 - [Поиск и устранение «прожорливых» процессов](#поиск-и-устранение-прожорливых-процессов)
+- [Дополнительные шпаргалки](#дополнительные-шпаргалки)
 - [Индекс команд](#индекс-команд)
 - [Планы по развитию](#планы-по-развитию)
 
+> Команды с `apt`/`dpkg` рассчитаны на Debian/Ubuntu и производные. На RHEL/Alma/Rocky:
+> `dnf provides /путь`, `rpm -qf /путь`, `systemctl` — по-прежнему актуален.
+
 ## Структура репозитория
 
-- `server_helthcheck_quick.txt` — супер‑краткая памятка по проверке состояния сервера.
-- `server_helthcheck_full.txt` — расширенный чек‑лист для диагностики VPS/сервера.
-- `seek_and_destroy.txt` — разбор реального кейса с «прожорливым» процессом
-  `io.elementary.appcenter` и общий алгоритм поиска и удаления проблемных процессов/пакетов.
-- `logs_cheatsheet.txt` — шпаргалка по анализу логов.
-- `realtime_monitoring_cheatsheet.txt` — шпаргалка по мониторингу в реальном времени.
-- `common_incidents_cheatsheet.txt` — шпаргалка по типовым инцидентам.
+- [`server_healthcheck_quick.md`](server_healthcheck_quick.md) — супер‑краткая памятка по проверке состояния сервера.
+- [`server_healthcheck_full.md`](server_healthcheck_full.md) — расширенный чек‑лист для диагностики VPS/сервера.
+- [`seek_and_destroy.md`](seek_and_destroy.md) — кейс `io.elementary.appcenter` и алгоритм поиска/удаления «прожорливых» процессов.
+- [`logs_cheatsheet.md`](logs_cheatsheet.md) — анализ логов.
+- [`realtime_monitoring_cheatsheet.md`](realtime_monitoring_cheatsheet.md) — мониторинг в реальном времени.
+- [`common_incidents_cheatsheet.md`](common_incidents_cheatsheet.md) — типовые инциденты.
 
 ---
 
 ## Быстрая проверка состояния сервера
 
-Минимальный набор команд из `server_helthcheck_quick.txt`:
+Минимальный набор команд из [`server_healthcheck_quick.md`](server_healthcheck_quick.md):
 
 ```bash
 uptime              # нагрузка и время работы
@@ -47,7 +50,7 @@ journalctl -p err -b  # ошибки текущей загрузки
 
 ## Расширенная диагностика VPS
 
-Из `server_helthcheck_full.txt`:
+Из [`server_healthcheck_full.md`](server_healthcheck_full.md):
 
 ### Общая нагрузка
 
@@ -120,7 +123,7 @@ sudo smartctl -a /dev/sda
 
 ## Поиск и устранение «прожорливых» процессов
 
-На основе `seek_and_destroy.txt`.
+На основе [`seek_and_destroy.md`](seek_and_destroy.md).
 
 ### 1. Найти тяжёлый процесс
 
@@ -138,7 +141,9 @@ ps aux | awk '$4 > 5 {print $2, $4"%", $11}' | sort -k2 -rn
 ### 2. Определить источник процесса
 
 ```bash
-which ПРОЦЕСС
+readlink -f /proc/PID/exe          # PID из колонки ps
+tr '\0' ' ' </proc/PID/cmdline      # полная командная строка
+which КОМАНДА                        # если процесс — имя из PATH
 dpkg -S /путь/к/файлу
 apt show ПАКЕТ
 ```
@@ -190,7 +195,7 @@ sudo systemctl disable СЛУЖБА
    ```
 2. Найти его источник:
    ```bash
-   which ПРОЦЕСС
+   readlink -f /proc/PID/exe
    dpkg -S /путь/к/файлу
    ```
 3. Проверить зависимости:
@@ -217,6 +222,21 @@ sudo systemctl disable СЛУЖБА
 
 В описанном кейсе безопасным кандидатом на удаление оказался `pop-shop` (магазин приложений),
 а не критичные системные компоненты. Meta‑пакет `pop-desktop` можно удалить без вреда системе.
+
+Перед `kill -9` и `apt purge` на сервере: по возможности `kill PID` (SIGTERM), снапshot/бэкап,
+оценка `apt-cache rdepends`. Snap/Flatpak не снимаются через `dpkg -S` — смотрите `snap list` / `flatpak list`.
+
+---
+
+## Дополнительные шпаргалки
+
+| Файл | Содержание |
+|------|------------|
+| [`logs_cheatsheet.md`](logs_cheatsheet.md) | `journalctl`, `/var/log`, nginx/postgresql, `grep`/`zgrep` |
+| [`realtime_monitoring_cheatsheet.md`](realtime_monitoring_cheatsheet.md) | `htop`, `iotop`, `iftop`, `nload`, `watch` |
+| [`common_incidents_cheatsheet.md`](common_incidents_cheatsheet.md) | Диск, nginx, DNS, нагрузка, сервис после ребута, чек‑лист инцидента |
+
+Полный кейс и таблицы команд: [`seek_and_destroy.md`](seek_and_destroy.md).
 
 ---
 
@@ -245,6 +265,7 @@ sudo systemctl disable СЛУЖБА
 - `ps aux --sort=-%mem | head`
 - `ps aux | awk '$4 > 5 {print $2, $4"%", $11}' | sort -k2 -rn`
 - `kill`, `kill -9`, `killall`
+- `readlink -f /proc/PID/exe`
 - `which`
 
 ### Сервисы и автозапуск
@@ -308,8 +329,7 @@ sudo systemctl disable СЛУЖБА
 
 ## Планы по развитию
 
-- Добавить отдельные файлы‑шпаргалки по:
-  - анализу логов (`journalctl`, `rsyslog`, `nginx`, `postgresql` и др.) → `logs_cheatsheet.txt`;
-  - мониторингу в реальном времени (`htop`, `iotop`, `iftop`, `nload`) → `realtime_monitoring_cheatsheet.txt`;
-  - типовым инцидентам (переполненный диск, упавший nginx, проблемы с DNS и т.п.) → `common_incidents_cheatsheet.txt`.
-- При необходимости — перевести основные разделы на английский для использования в международных командах.
+- Раздел по OOM и нехватке памяти (`dmesg`, `journalctl -k`, `grep -i oom`).
+- Краткий блок про firewall (`ufw`, `nft`, `iptables -L`) и «не могу зайти по SSH».
+- Интерпретация load average относительно `nproc`.
+- При необходимости — перевод основных разделов на английский для международных команд.
