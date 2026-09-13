@@ -38,6 +38,7 @@
 - [`awk_sed_cheatsheet.md`](awk_sed_cheatsheet.md) — sed/awk: замена, поля, логи, мини‑скрипты.
 - [`ranger_cheatsheet.md`](ranger_cheatsheet.md) — ranger: vi‑навигация, yy/dd/pp, rifle, закладки.
 - [`tmux_cheatsheet.md`](tmux_cheatsheet.md) — tmux: сессии, окна, панели, SSH, ~/.tmux.conf.
+- [`regex_cheatsheet.md`](regex_cheatsheet.md) — regex с нуля: grep -E, sed, awk, bash, примеры для логов.
 
 ---
 
@@ -263,6 +264,7 @@ sudo systemctl disable СЛУЖБА
 | [`awk_sed_cheatsheet.md`](awk_sed_cheatsheet.md) | sed s///, awk $1/$NF, nginx/df/ps, awk -f скрипты |
 | [`ranger_cheatsheet.md`](ranger_cheatsheet.md) | ranger: h/j/k/l, буфер, :cd, rifle, ranger_cd, sudo |
 | [`tmux_cheatsheet.md`](tmux_cheatsheet.md) | Prefix, detach/attach, splits, copy mode, сценарии на VPS |
+| [`regex_cheatsheet.md`](regex_cheatsheet.md) | BRE/ERE, grep/sed/awk, логи nginx/auth, мини‑скрипты |
 
 Полный кейс и таблицы команд: [`seek_and_destroy.md`](seek_and_destroy.md).
 
@@ -355,7 +357,7 @@ sudo systemctl disable СЛУЖБА
 - `journalctl -u ИМЯ_СЕРВИСА -b`
 - `journalctl --since today`
 - `tail -F /var/log/syslog`
-- `grep`, `zgrep`
+- `grep`, `grep -E`, `zgrep`
 - `less`
 - `dmesg -T --level=err,warn`
 - `logrotate -d /etc/logrotate.conf`

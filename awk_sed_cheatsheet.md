@@ -1,6 +1,6 @@
 # sed и awk: обработка текста в командной строке
 
-← [README](README.md) · логи/nginx: [logs_cheatsheet.md](logs_cheatsheet.md) · bash: [bash_scripts_cheatsheet.md](bash_scripts_cheatsheet.md)
+← [README](README.md) · regex с нуля: [regex_cheatsheet.md](regex_cheatsheet.md) · логи: [logs_cheatsheet.md](logs_cheatsheet.md) · bash: [bash_scripts_cheatsheet.md](bash_scripts_cheatsheet.md)
 
 **sed** (stream editor) и **awk** — стандартные утилиты Unix для **потоковой** обработки текста: фильтрация, замена, разбор колонок. Есть на любом Linux/VPS без установки.
 
