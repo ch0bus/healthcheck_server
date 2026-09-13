@@ -33,7 +33,7 @@ htop -t                         # сразу дерево процессов (к
 htop -s PERCENT_CPU             # стартовая сортировка (имена полей — в F6 / Setup)
 ```
 
-По SSH без локали иногда «ломается» псевдографика — попробуйте `export TERM=xterm-256color` или `htop` в **tmux**/screen.
+По SSH без локали иногда «ломается» псевдографика — попробуйте `export TERM=xterm-256color` или `htop` в **tmux** ([tmux_cheatsheet.md](tmux_cheatsheet.md)) / screen.
 
 ---
 

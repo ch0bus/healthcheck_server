@@ -37,6 +37,7 @@
 - [`routine_automation_scripts.md`](routine_automation_scripts.md) — готовые скрипты: сортировка файлов, фото, рутина.
 - [`awk_sed_cheatsheet.md`](awk_sed_cheatsheet.md) — sed/awk: замена, поля, логи, мини‑скрипты.
 - [`ranger_cheatsheet.md`](ranger_cheatsheet.md) — ranger: vi‑навигация, yy/dd/pp, rifle, закладки.
+- [`tmux_cheatsheet.md`](tmux_cheatsheet.md) — tmux: сессии, окна, панели, SSH, ~/.tmux.conf.
 
 ---
 
@@ -261,6 +262,7 @@ sudo systemctl disable СЛУЖБА
 | [`routine_automation_scripts.md`](routine_automation_scripts.md) | Сортировка, фото, HEIC/PDF, watch-inbox, dotfiles, trash |
 | [`awk_sed_cheatsheet.md`](awk_sed_cheatsheet.md) | sed s///, awk $1/$NF, nginx/df/ps, awk -f скрипты |
 | [`ranger_cheatsheet.md`](ranger_cheatsheet.md) | ranger: h/j/k/l, буфер, :cd, rifle, ranger_cd, sudo |
+| [`tmux_cheatsheet.md`](tmux_cheatsheet.md) | Prefix, detach/attach, splits, copy mode, сценарии на VPS |
 
 Полный кейс и таблицы команд: [`seek_and_destroy.md`](seek_and_destroy.md).
 
@@ -284,6 +286,13 @@ sudo systemctl disable СЛУЖБА
 - `du -xhd1 /var | sort -h`
 - `iostat -x`
 - `ls /var/log`
+
+### Терминал (tmux)
+
+- `tmux`
+- `tmux new -A -s ИМЯ`
+- `tmux ls`
+- `tmux attach -t ИМЯ`
 
 ### Процессы
 

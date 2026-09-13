@@ -2,7 +2,7 @@
 
 ← [README](README.md) · навигация shell: [linux_install_and_basics.md](linux_install_and_basics.md) · редактор: [vim_cheatsheet.md](vim_cheatsheet.md) · архивы: [archives_compression_cheatsheet.md](archives_compression_cheatsheet.md)
 
-**Ranger** — **TUI**‑файловый менеджер в терминале с **vi‑подобными** клавишами: три колонки (родитель / текущий каталог / превью), быстрый обход дерева без мыши. Удобен на **SSH**, в **tmux** и на desktop, если привычны `h/j/k/l` из Vim.
+**Ranger** — **TUI**‑файловый менеджер в терминале с **vi‑подобными** клавишами: три колонки (родитель / текущий каталог / превью), быстрый обход дерева без мыши. Удобен на **SSH**, в **tmux** ([tmux_cheatsheet.md](tmux_cheatsheet.md)) и на desktop, если привычны `h/j/k/l` из Vim.
 
 | | **GUI (Nautilus, Dolphin)** | **mc (Midnight Commander)** | **ranger** |
 |---|------------------------------|-----------------------------|------------|

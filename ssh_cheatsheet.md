@@ -1,6 +1,6 @@
 # SSH: подключение, ключи, конфиги, передача файлов
 
-← [README](README.md) · основы: [linux_install_and_basics.md](linux_install_and_basics.md) · shell: [bashrc_cheatsheet.md](bashrc_cheatsheet.md)
+← [README](README.md) · основы: [linux_install_and_basics.md](linux_install_and_basics.md) · shell: [bashrc_cheatsheet.md](bashrc_cheatsheet.md) · сессии: [tmux_cheatsheet.md](tmux_cheatsheet.md)
 
 **SSH (Secure Shell)** — зашифрованный протокол для удалённого входа в shell, выполнения команд и передачи файлов. На VPS и серверах это основной способ администрирования.
 
@@ -315,4 +315,4 @@ ssh-copy-id -i ~/.ssh/id_ed25519.pub user@host   # установить ключ
 sudo sshd -t && sudo systemctl reload ssh     # проверить и применить sshd_config
 ```
 
-После настройки сервера: [server_healthcheck_quick.md](server_healthcheck_quick.md). Правка конфигов: [vim_cheatsheet.md](vim_cheatsheet.md).
+После настройки сервера: [server_healthcheck_quick.md](server_healthcheck_quick.md). Правка конфигов: [vim_cheatsheet.md](vim_cheatsheet.md). Долгая работа по SSH без обрыва: [tmux_cheatsheet.md](tmux_cheatsheet.md).
