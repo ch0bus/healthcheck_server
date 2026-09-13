@@ -53,7 +53,7 @@ systemctl list-unit-files --type=service > ~/systemd-services.txt   # обзор
 
 ## 3. Простые архивы: `tar` и `gzip`
 
-Подходит для `/etc`, небольших сайтов, разовых снимков.
+Подходит для `/etc`, небольших сайтов, разовых снимков. Подробнее форматы и сжатие: [archives_compression_cheatsheet.md](archives_compression_cheatsheet.md).
 
 ```bash
 sudo tar -czvf /backup/etc-$(date +%F).tar.gz -C / etc   # архив /etc с датой в имени

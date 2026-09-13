@@ -56,7 +56,7 @@ less +G /var/log/syslog
 
 ```bash
 grep -i "error" /var/log/syslog
-zgrep -i "oom" /var/log/syslog.1.gz
+zgrep -i "oom" /var/log/syslog.1.gz   # см. archives_compression_cheatsheet.md
 grep -i -C3 "failed" /var/log/auth.log
 ```
 
