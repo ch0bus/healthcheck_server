@@ -34,6 +34,7 @@
 - [`archives_compression_cheatsheet.md`](archives_compression_cheatsheet.md) — tar, gzip/xz/zstd, zip, zgrep.
 - [`bash_scripts_cheatsheet.md`](bash_scripts_cheatsheet.md) — bash‑скрипты: set -euo, trap, flock, примеры.
 - [`routine_automation_scripts.md`](routine_automation_scripts.md) — готовые скрипты: сортировка файлов, фото, рутина.
+- [`awk_sed_cheatsheet.md`](awk_sed_cheatsheet.md) — sed/awk: замена, поля, логи, мини‑скрипты.
 
 ---
 
@@ -255,6 +256,7 @@ sudo systemctl disable СЛУЖБА
 | [`archives_compression_cheatsheet.md`](archives_compression_cheatsheet.md) | tar, gzip/bzip2/xz/zstd, zip, pipes, checksum |
 | [`bash_scripts_cheatsheet.md`](bash_scripts_cheatsheet.md) | set -euo, функции, trap/flock, healthcheck, retry, cron |
 | [`routine_automation_scripts.md`](routine_automation_scripts.md) | Сортировка, фото, HEIC/PDF, watch-inbox, dotfiles, trash |
+| [`awk_sed_cheatsheet.md`](awk_sed_cheatsheet.md) | sed s///, awk $1/$NF, nginx/df/ps, awk -f скрипты |
 
 Полный кейс и таблицы команд: [`seek_and_destroy.md`](seek_and_destroy.md).
 

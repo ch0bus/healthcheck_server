@@ -1,6 +1,6 @@
 # Шпаргалка по анализу логов
 
-← [README](README.md) · инциденты: [common_incidents_cheatsheet.md](common_incidents_cheatsheet.md)
+← [README](README.md) · awk/sed: [awk_sed_cheatsheet.md](awk_sed_cheatsheet.md) · инциденты: [common_incidents_cheatsheet.md](common_incidents_cheatsheet.md)
 
 ## 1. journalctl (systemd)
 
