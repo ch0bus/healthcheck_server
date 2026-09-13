@@ -36,6 +36,7 @@
 - [`bash_scripts_cheatsheet.md`](bash_scripts_cheatsheet.md) — bash‑скрипты: set -euo, trap, flock, примеры.
 - [`routine_automation_scripts.md`](routine_automation_scripts.md) — готовые скрипты: сортировка файлов, фото, рутина.
 - [`awk_sed_cheatsheet.md`](awk_sed_cheatsheet.md) — sed/awk: замена, поля, логи, мини‑скрипты.
+- [`ranger_cheatsheet.md`](ranger_cheatsheet.md) — ranger: vi‑навигация, yy/dd/pp, rifle, закладки.
 
 ---
 
@@ -259,6 +260,7 @@ sudo systemctl disable СЛУЖБА
 | [`bash_scripts_cheatsheet.md`](bash_scripts_cheatsheet.md) | set -euo, функции, trap/flock, healthcheck, retry, cron |
 | [`routine_automation_scripts.md`](routine_automation_scripts.md) | Сортировка, фото, HEIC/PDF, watch-inbox, dotfiles, trash |
 | [`awk_sed_cheatsheet.md`](awk_sed_cheatsheet.md) | sed s///, awk $1/$NF, nginx/df/ps, awk -f скрипты |
+| [`ranger_cheatsheet.md`](ranger_cheatsheet.md) | ranger: h/j/k/l, буфер, :cd, rifle, ranger_cd, sudo |
 
 Полный кейс и таблицы команд: [`seek_and_destroy.md`](seek_and_destroy.md).
 
