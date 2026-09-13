@@ -29,6 +29,7 @@
 - [`bashrc_cheatsheet.md`](bashrc_cheatsheet.md) — `.bashrc`, профиль, PATH, aliases, функции.
 - [`ssh_cheatsheet.md`](ssh_cheatsheet.md) — SSH: ключи, `sshd`, `~/.ssh/config`, scp/rsync/sftp.
 - [`nfs_samba_cheatsheet.md`](nfs_samba_cheatsheet.md) — NFS и Samba: экспорт, mount, fstab, права.
+- [`firewall_cheatsheet.md`](firewall_cheatsheet.md) — ufw, nftables, firewalld, SG, fail2ban.
 
 ---
 
@@ -245,6 +246,7 @@ sudo systemctl disable СЛУЖБА
 | [`bashrc_cheatsheet.md`](bashrc_cheatsheet.md) | `.bashrc` vs profile, `export`, aliases, функции, `bash -n` |
 | [`ssh_cheatsheet.md`](ssh_cheatsheet.md) | Ключи, sshd, config, scp/sftp/rsync, туннели, отладка |
 | [`nfs_samba_cheatsheet.md`](nfs_samba_cheatsheet.md) | NFSv4 exports, Samba smb.conf, CIFS mount, ufw |
+| [`firewall_cheatsheet.md`](firewall_cheatsheet.md) | ufw/nft/firewalld, VPS SG, Docker/FORWARD, SSH lockout |
 
 Полный кейс и таблицы команд: [`seek_and_destroy.md`](seek_and_destroy.md).
 
@@ -340,6 +342,5 @@ sudo systemctl disable СЛУЖБА
 ## Планы по развитию
 
 - Раздел по OOM и нехватке памяти (`dmesg`, `journalctl -k`, `grep -i oom`).
-- Краткий блок про firewall (`ufw`, `nft`, `iptables -L`) и «не могу зайти по SSH».
 - Интерпретация load average относительно `nproc`.
 - При необходимости — перевод основных разделов на английский для международных команд.

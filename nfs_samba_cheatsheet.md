@@ -1,6 +1,6 @@
 # NFS и Samba: сетевые каталоги в Linux
 
-← [README](README.md) · монтирование и fstab: [linux_install_and_basics.md](linux_install_and_basics.md) · SSH/передача файлов: [ssh_cheatsheet.md](ssh_cheatsheet.md)
+← [README](README.md) · монтирование: [linux_install_and_basics.md](linux_install_and_basics.md) · firewall: [firewall_cheatsheet.md](firewall_cheatsheet.md)
 
 **NFS** и **Samba (SMB/CIFS)** — способы отдать каталог по сети другим машинам. Оба часто используют в LAN (дом, офис, homelab), реже на публичном VPS без VPN.
 

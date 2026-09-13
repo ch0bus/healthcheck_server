@@ -265,16 +265,10 @@ ssh -J user@bastion:22 user@10.0.0.5         # сначала bastion, зате�
 
 1. Вход по **ключу**; `PasswordAuthentication no` после проверки.
 2. **Root:** `PermitRootLogin no` (работать под user + `sudo`).
-3. **Firewall:** разрешить только нужный порт SSH (`ufw allow OpenSSH` или `2222/tcp`).
-4. **Fail2ban** (опционально) — бан IP после bruteforce.
+3. **Firewall:** [firewall_cheatsheet.md](firewall_cheatsheet.md) — ufw/SG, не закрыть SSH.
+4. **Fail2ban** (опционально) — см. firewall_cheatsheet §9.
 5. Обновления: `sudo apt upgrade` для патчей OpenSSH.
 6. Не коммитить **приватные ключи** в git; не слать `.pem` в мессенджеры.
-
-```bash
-sudo ufw status verbose                      # правила firewall
-sudo apt install -y fail2ban                 # опционально
-sudo fail2ban-client status sshd             # jail ssh (имя может отличаться)
-```
 
 ---
 

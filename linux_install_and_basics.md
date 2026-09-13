@@ -101,13 +101,7 @@ uname -a                     # ядро, архитектура, версия О
 ```
 
 - Настроить **SSH** (ключи, `sshd`, firewall): [ssh_cheatsheet.md](ssh_cheatsheet.md).
-- **Firewall** (если используете ufw):
-
-```bash
-sudo ufw enable              # включить фильтрацию (подтвердить правило для SSH)
-sudo ufw allow OpenSSH       # разрешить вход по SSH (порт 22)
-sudo ufw status verbose      # проверить правила
-```
+- **Firewall:** [firewall_cheatsheet.md](firewall_cheatsheet.md) (сначала `allow OpenSSH`, затем `enable`).
 - Резервная копия важных данных — до экспериментов с разделами и purge пакетов.
 
 Дальнейшая эксплуатация: [server_healthcheck_quick.md](server_healthcheck_quick.md), [common_incidents_cheatsheet.md](common_incidents_cheatsheet.md).
