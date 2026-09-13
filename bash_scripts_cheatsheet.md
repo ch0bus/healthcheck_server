@@ -685,3 +685,5 @@ mktemp -d; trap 'rm -rf $d' EXIT               # temp dir
 ```
 
 Интерактивный shell (aliases, PS1): [bashrc_cheatsheet.md](bashrc_cheatsheet.md).
+
+Готовые скрипты для файлов и фото: [routine_automation_scripts.md](routine_automation_scripts.md).
