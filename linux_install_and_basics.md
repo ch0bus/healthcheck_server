@@ -148,6 +148,8 @@ sudo mount /dev/sdX1 /mnt    # временно смонтировать раз�
 sudo umount /mnt             # отмонтировать, когда закончили
 ```
 
+Сетевые каталоги **NFS / Samba**: [nfs_samba_cheatsheet.md](nfs_samba_cheatsheet.md).
+
 Пример строки fstab (ext4):
 
 ```text

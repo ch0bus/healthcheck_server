@@ -28,6 +28,7 @@
 - [`vim_cheatsheet.md`](vim_cheatsheet.md) — Vim: режимы, правка конфигов, поиск, `.vimrc`.
 - [`bashrc_cheatsheet.md`](bashrc_cheatsheet.md) — `.bashrc`, профиль, PATH, aliases, функции.
 - [`ssh_cheatsheet.md`](ssh_cheatsheet.md) — SSH: ключи, `sshd`, `~/.ssh/config`, scp/rsync/sftp.
+- [`nfs_samba_cheatsheet.md`](nfs_samba_cheatsheet.md) — NFS и Samba: экспорт, mount, fstab, права.
 
 ---
 
@@ -243,6 +244,7 @@ sudo systemctl disable СЛУЖБА
 | [`vim_cheatsheet.md`](vim_cheatsheet.md) | Режимы, навигация, `:s`, split, sudoedit, минимальный `.vimrc` |
 | [`bashrc_cheatsheet.md`](bashrc_cheatsheet.md) | `.bashrc` vs profile, `export`, aliases, функции, `bash -n` |
 | [`ssh_cheatsheet.md`](ssh_cheatsheet.md) | Ключи, sshd, config, scp/sftp/rsync, туннели, отладка |
+| [`nfs_samba_cheatsheet.md`](nfs_samba_cheatsheet.md) | NFSv4 exports, Samba smb.conf, CIFS mount, ufw |
 
 Полный кейс и таблицы команд: [`seek_and_destroy.md`](seek_and_destroy.md).
 
