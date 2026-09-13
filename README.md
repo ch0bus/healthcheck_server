@@ -24,6 +24,7 @@
 - [`logs_cheatsheet.md`](logs_cheatsheet.md) — анализ логов.
 - [`realtime_monitoring_cheatsheet.md`](realtime_monitoring_cheatsheet.md) — мониторинг в реальном времени.
 - [`common_incidents_cheatsheet.md`](common_incidents_cheatsheet.md) — типовые инциденты.
+- [`linux_install_and_basics.md`](linux_install_and_basics.md) — установка Ubuntu‑подобных систем, ФС, ориентирование в Linux.
 
 ---
 
@@ -235,6 +236,7 @@ sudo systemctl disable СЛУЖБА
 | [`logs_cheatsheet.md`](logs_cheatsheet.md) | `journalctl`, `/var/log`, nginx/postgresql, `grep`/`zgrep` |
 | [`realtime_monitoring_cheatsheet.md`](realtime_monitoring_cheatsheet.md) | `htop`, `iotop`, `iftop`, `nload`, `watch` |
 | [`common_incidents_cheatsheet.md`](common_incidents_cheatsheet.md) | Диск, nginx, DNS, нагрузка, сервис после ребута, чек‑лист инцидента |
+| [`linux_install_and_basics.md`](linux_install_and_basics.md) | Установка Ubuntu/Mint/Pop, разметка, ext4/swap/LVM, FHS, shell |
 
 Полный кейс и таблицы команд: [`seek_and_destroy.md`](seek_and_destroy.md).
 
