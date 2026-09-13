@@ -64,6 +64,8 @@ grep -i -C3 "failed" /var/log/auth.log
 
 ## 3. nginx
 
+Конфиг и 502/504: [nginx_cheatsheet.md](nginx_cheatsheet.md).
+
 Пути по умолчанию (могут отличаться):
 
 - `/var/log/nginx/access.log`
@@ -82,6 +84,8 @@ awk '{print $1}' /var/log/nginx/access.log | sort | uniq -c | sort -nr | head
 ---
 
 ## 4. PostgreSQL
+
+Админка и дампы: [databases_cheatsheet.md](databases_cheatsheet.md).
 
 Логи часто в `/var/log/postgresql/` или в `PGDATA`.
 

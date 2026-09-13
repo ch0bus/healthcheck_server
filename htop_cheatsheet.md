@@ -55,7 +55,7 @@ htop -s PERCENT_CPU             # стартовая сортировка (им�
 - **VIRT** — виртуальный адресный простор (часто завышен, не путать с фактическим давлением на RAM).
 - **TIME+** — суммарное CPU‑время процесса с момента старта.
 
-Состояние **`D` (uninterruptible sleep)** часто связано с **диском** — тогда смотрите ещё `iotop` ([realtime_monitoring_cheatsheet.md](realtime_monitoring_cheatsheet.md)).
+Состояние **`D` (uninterruptible sleep)** часто связано с **диском** — тогда смотрите [disk_io_cheatsheet.md](disk_io_cheatsheet.md).
 
 ---
 
@@ -176,7 +176,7 @@ sudo iotop -o
 iostat -x 1 5
 ```
 
-Подробнее: [realtime_monitoring_cheatsheet.md](realtime_monitoring_cheatsheet.md).
+Подробнее: [disk_io_cheatsheet.md](disk_io_cheatsheet.md), [memory_and_load_cheatsheet.md](memory_and_load_cheatsheet.md).
 
 ### Один процесс на 100% одного ядра
 
@@ -290,7 +290,7 @@ watch -n 5 'ps -o pid,rss,cmd -p PID'   # RSS в KB; в htop RES — похож�
 | Быстро покликать, убить, nice | **htop** |
 | Скрипт / одна строка в чат | **`top -b -n 1 \| head`** |
 | Нет htop в образе | **top** или `ps` + `watch` |
-| Диск, а не CPU | **iotop**, `iostat` — [realtime_monitoring_cheatsheet.md](realtime_monitoring_cheatsheet.md) |
+| Диск, а не CPU | **iotop**, `iostat` — [disk_io_cheatsheet.md](disk_io_cheatsheet.md) |
 | Разбор «прожорливого» пакета | [seek_and_destroy.md](seek_and_destroy.md) |
 
 Снимок для лога:
@@ -320,4 +320,4 @@ Shift+P CPU   Shift+M MEM   u пользователь   c полная cmd   H 
 htop -u USER   htop -p PIDs   htop -t   htop -d 20
 ```
 
-Диагностика сервера в связке: [server_healthcheck_quick.md](server_healthcheck_quick.md) → htop → при I/O [realtime_monitoring_cheatsheet.md](realtime_monitoring_cheatsheet.md) § iotop.
+Диагностика сервера в связке: [server_healthcheck_quick.md](server_healthcheck_quick.md) → htop → при I/O [disk_io_cheatsheet.md](disk_io_cheatsheet.md), при RAM/OOM [memory_and_load_cheatsheet.md](memory_and_load_cheatsheet.md).

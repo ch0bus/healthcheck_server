@@ -208,7 +208,7 @@ sudo iptables-nft -L -n -v                   # iptables через nft backend
 
 ## 6. Docker, VPN и FORWARD (важно)
 
-**Docker** по умолчанию манипулирует iptables/nft и может **обходить ufw** для опубликованных портов (`-p 8080:80`). Решения — отдельная тема (bind на localhost, reverse proxy, `ufw-docker`, custom DOCKER-USER chain).
+**Docker** по умолчанию манипулирует iptables/nft и может **обходить ufw** для опубликованных портов (`-p 8080:80`). Решения: [docker_vps_cheatsheet.md](docker_vps_cheatsheet.md) (bind на localhost, reverse proxy, `ufw-docker`, DOCKER-USER).
 
 **VPN / роутер** — трафик идёт через **FORWARD**; ufw по умолчанию настраивает в основном **INPUT**.
 

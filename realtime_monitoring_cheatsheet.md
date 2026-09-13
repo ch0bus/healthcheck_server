@@ -1,6 +1,6 @@
 # Мониторинг в реальном времени
 
-← [README](README.md) · [расширенный healthcheck](server_healthcheck_full.md) · [htop](htop_cheatsheet.md) · [tmux](tmux_cheatsheet.md)
+← [README](README.md) · [расширенный healthcheck](server_healthcheck_full.md) · [htop](htop_cheatsheet.md) · [disk I/O](disk_io_cheatsheet.md) · [tmux](tmux_cheatsheet.md)
 
 ## 1. htop
 
@@ -13,6 +13,8 @@ htop
 Кратко: **F6** — сортировка, **F3** — поиск, **F9** — сигнал (сначала SIGTERM), **F10** — выход.
 
 ## 2. iotop — диск
+
+Подробно: **[disk_io_cheatsheet.md](disk_io_cheatsheet.md)** (iostat, I/O wait).
 
 ```bash
 sudo iotop

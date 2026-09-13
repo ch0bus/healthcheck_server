@@ -1,6 +1,6 @@
 # Типовые инциденты
 
-← [README](README.md) · [логи](logs_cheatsheet.md) · [htop](htop_cheatsheet.md) · [seek and destroy](seek_and_destroy.md)
+← [README](README.md) · [логи](logs_cheatsheet.md) · [nginx](nginx_cheatsheet.md) · [сеть](network_diagnostics_cheatsheet.md) · [память](memory_and_load_cheatsheet.md) · [seek and destroy](seek_and_destroy.md)
 
 ## 1. Переполненный диск
 
@@ -17,6 +17,8 @@ df -ih
 du -xhd1 / | sort -h
 du -xhd1 /var | sort -h
 ```
+
+Расширение LVM после увеличения диска: [lvm_disk_cheatsheet.md](lvm_disk_cheatsheet.md).
 
 ### Типовые места
 
@@ -52,7 +54,7 @@ ss -tulpen | grep ':80'
 ss -tulpen | grep ':443'
 ```
 
-Часто: ошибка в конфиге или занят порт 80/443.
+Часто: ошибка в конфиге или занят порт 80/443. Подробно: [nginx_cheatsheet.md](nginx_cheatsheet.md), HTTPS: [tls_certificates_cheatsheet.md](tls_certificates_cheatsheet.md).
 
 ---
 
@@ -72,7 +74,7 @@ dig google.com
 cat /etc/resolv.conf
 ```
 
-Решения: DNS в настройках сети; правка `/etc/resolv.conf` может перезаписываться (systemd-resolved, NetworkManager). Проверить локальный резолвер.
+Решения: DNS в настройках сети; правка `/etc/resolv.conf` может перезаписываться (systemd-resolved, NetworkManager). Подробно: [network_diagnostics_cheatsheet.md](network_diagnostics_cheatsheet.md).
 
 ---
 
@@ -85,7 +87,7 @@ ps aux --sort=-%cpu | head -15
 ps aux --sort=-%mem | head -15
 ```
 
-Дальше — [seek_and_destroy.md](seek_and_destroy.md): `readlink -f /proc/PID/exe`, `dpkg -S`, оценка пакета, remove/restart.
+Память, swap, OOM: [memory_and_load_cheatsheet.md](memory_and_load_cheatsheet.md). Диск/I/O: [disk_io_cheatsheet.md](disk_io_cheatsheet.md). Дальше — [seek_and_destroy.md](seek_and_destroy.md): `readlink -f /proc/PID/exe`, `dpkg -S`, оценка пакета, remove/restart.
 
 ---
 
@@ -97,7 +99,7 @@ journalctl -u ИМЯ_СЕРВИСА -b
 systemctl is-enabled ИМЯ_СЕРВИСА
 ```
 
-Проверить: `enabled`, конфиг, зависимости (сеть, диски, каталоги).
+Проверить: `enabled`, конфиг, зависимости (сеть, диски, каталоги). Unit и timer: [systemd_cheatsheet.md](systemd_cheatsheet.md). Права на каталоги: [permissions_cheatsheet.md](permissions_cheatsheet.md).
 
 ---
 

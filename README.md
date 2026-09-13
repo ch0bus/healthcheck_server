@@ -5,6 +5,7 @@
 
 ## Оглавление
 
+- [С чего начать](#с-чего-начать)
 - [Структура репозитория](#структура-репозитория)
 - [Быстрая проверка состояния сервера](#быстрая-проверка-состояния-сервера)
 - [Расширенная диагностика VPS](#расширенная-диагностика-vps)
@@ -16,29 +17,64 @@
 > Команды с `apt`/`dpkg` рассчитаны на Debian/Ubuntu и производные. На RHEL/Alma/Rocky:
 > `dnf provides /путь`, `rpm -qf /путь`, `systemctl` — по-прежнему актуален.
 
+Лицензия: [LICENSE](LICENSE) · как дополнять: [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## С чего начать
+
+| Маршрут | Куда идти |
+|---------|-----------|
+| **Новый VPS** | [linux_install_and_basics.md](linux_install_and_basics.md) → [ssh_cheatsheet.md](ssh_cheatsheet.md) → [tmux_cheatsheet.md](tmux_cheatsheet.md) → [server_healthcheck_quick.md](server_healthcheck_quick.md) → [firewall_cheatsheet.md](firewall_cheatsheet.md) → [backups_cheatsheet.md](backups_cheatsheet.md) |
+| **Что-то сломалось** | [server_healthcheck_quick.md](server_healthcheck_quick.md) → [common_incidents_cheatsheet.md](common_incidents_cheatsheet.md) → [logs_cheatsheet.md](logs_cheatsheet.md) → тематическая шпаргалка (nginx, сеть, память…) |
+| **Desktop / рутина** | [bashrc_cheatsheet.md](bashrc_cheatsheet.md) → [routine_automation_scripts.md](routine_automation_scripts.md) → [ranger_cheatsheet.md](ranger_cheatsheet.md) |
+
 ## Структура репозитория
+
+### Диагностика и инциденты
 
 - [`server_healthcheck_quick.md`](server_healthcheck_quick.md) — супер‑краткая памятка по проверке состояния сервера.
 - [`server_healthcheck_full.md`](server_healthcheck_full.md) — расширенный чек‑лист для диагностики VPS/сервера.
 - [`seek_and_destroy.md`](seek_and_destroy.md) — кейс `io.elementary.appcenter` и алгоритм поиска/удаления «прожорливых» процессов.
+- [`common_incidents_cheatsheet.md`](common_incidents_cheatsheet.md) — типовые инциденты.
 - [`logs_cheatsheet.md`](logs_cheatsheet.md) — анализ логов.
+- [`memory_and_load_cheatsheet.md`](memory_and_load_cheatsheet.md) — RAM, swap, load, OOM.
+- [`disk_io_cheatsheet.md`](disk_io_cheatsheet.md) — iotop, iostat, I/O wait.
+- [`network_diagnostics_cheatsheet.md`](network_diagnostics_cheatsheet.md) — DNS, маршруты, порты.
+
+### Мониторинг и ресурсы
+
 - [`realtime_monitoring_cheatsheet.md`](realtime_monitoring_cheatsheet.md) — мониторинг в реальном времени.
 - [`htop_cheatsheet.md`](htop_cheatsheet.md) — htop: экран, клавиши, F9, сценарии на сервере.
-- [`common_incidents_cheatsheet.md`](common_incidents_cheatsheet.md) — типовые инциденты.
-- [`linux_install_and_basics.md`](linux_install_and_basics.md) — установка Ubuntu‑подобных систем, ФС, ориентирование в Linux.
-- [`vim_cheatsheet.md`](vim_cheatsheet.md) — Vim: режимы, правка конфигов, поиск, `.vimrc`.
-- [`bashrc_cheatsheet.md`](bashrc_cheatsheet.md) — `.bashrc`, профиль, PATH, aliases, функции.
+- [`lvm_disk_cheatsheet.md`](lvm_disk_cheatsheet.md) — LVM, расширение диска.
+
+### Сервисы и инфраструктура
+
+- [`nginx_cheatsheet.md`](nginx_cheatsheet.md) — nginx, reverse proxy, 502/504.
+- [`tls_certificates_cheatsheet.md`](tls_certificates_cheatsheet.md) — TLS, certbot, срок сертификата.
+- [`databases_cheatsheet.md`](databases_cheatsheet.md) — PostgreSQL / MySQL минимум.
+- [`docker_vps_cheatsheet.md`](docker_vps_cheatsheet.md) — Docker, compose, порты и ufw.
+- [`systemd_cheatsheet.md`](systemd_cheatsheet.md) — unit, timer, journal, override.
 - [`ssh_cheatsheet.md`](ssh_cheatsheet.md) — SSH: ключи, `sshd`, `~/.ssh/config`, scp/rsync/sftp.
 - [`nfs_samba_cheatsheet.md`](nfs_samba_cheatsheet.md) — NFS и Samba: экспорт, mount, fstab, права.
 - [`firewall_cheatsheet.md`](firewall_cheatsheet.md) — ufw, nftables, firewalld, SG, fail2ban.
 - [`backups_cheatsheet.md`](backups_cheatsheet.md) — стратегия 3-2-1, tar/rsync, БД, restic, cron.
-- [`archives_compression_cheatsheet.md`](archives_compression_cheatsheet.md) — tar, gzip/xz/zstd, zip, zgrep.
+- [`permissions_cheatsheet.md`](permissions_cheatsheet.md) — chmod, chown, umask, namei, ACL.
+
+### Основы, shell и текст
+
+- [`linux_install_and_basics.md`](linux_install_and_basics.md) — установка Ubuntu‑подобных систем, ФС, ориентирование в Linux.
+- [`vim_cheatsheet.md`](vim_cheatsheet.md) — Vim: режимы, правка конфигов, поиск, `.vimrc`.
+- [`bashrc_cheatsheet.md`](bashrc_cheatsheet.md) — `.bashrc`, профиль, PATH, aliases, функции.
 - [`bash_scripts_cheatsheet.md`](bash_scripts_cheatsheet.md) — bash‑скрипты: set -euo, trap, flock, примеры.
-- [`routine_automation_scripts.md`](routine_automation_scripts.md) — готовые скрипты: сортировка файлов, фото, рутина.
+- [`archives_compression_cheatsheet.md`](archives_compression_cheatsheet.md) — tar, gzip/xz/zstd, zip, zgrep.
 - [`awk_sed_cheatsheet.md`](awk_sed_cheatsheet.md) — sed/awk: замена, поля, логи, мини‑скрипты.
-- [`ranger_cheatsheet.md`](ranger_cheatsheet.md) — ranger: vi‑навигация, yy/dd/pp, rifle, закладки.
+- [`regex_cheatsheet.md`](regex_cheatsheet.md) — regex с нуля: grep -E, sed, awk, bash.
+- [`jq_cheatsheet.md`](jq_cheatsheet.md) — JSON: journal, API, docker logs.
+
+### Терминал и desktop
+
 - [`tmux_cheatsheet.md`](tmux_cheatsheet.md) — tmux: сессии, окна, панели, SSH, ~/.tmux.conf.
-- [`regex_cheatsheet.md`](regex_cheatsheet.md) — regex с нуля: grep -E, sed, awk, bash, примеры для логов.
+- [`ranger_cheatsheet.md`](ranger_cheatsheet.md) — ranger: vi‑навигация, yy/dd/pp, rifle, закладки.
+- [`routine_automation_scripts.md`](routine_automation_scripts.md) — готовые скрипты: сортировка файлов, фото, рутина.
 
 ---
 
@@ -265,6 +301,17 @@ sudo systemctl disable СЛУЖБА
 | [`ranger_cheatsheet.md`](ranger_cheatsheet.md) | ranger: h/j/k/l, буфер, :cd, rifle, ranger_cd, sudo |
 | [`tmux_cheatsheet.md`](tmux_cheatsheet.md) | Prefix, detach/attach, splits, copy mode, сценарии на VPS |
 | [`regex_cheatsheet.md`](regex_cheatsheet.md) | BRE/ERE, grep/sed/awk, логи nginx/auth, мини‑скрипты |
+| [`memory_and_load_cheatsheet.md`](memory_and_load_cheatsheet.md) | load vs nproc, swap, OOM, dmesg/journalctl -k |
+| [`disk_io_cheatsheet.md`](disk_io_cheatsheet.md) | iotop, iostat, I/O wait, состояние D |
+| [`lvm_disk_cheatsheet.md`](lvm_disk_cheatsheet.md) | pvs/lvs, growpart, lvextend, resize2fs |
+| [`nginx_cheatsheet.md`](nginx_cheatsheet.md) | sites-enabled, nginx -t, proxy, 502/504 |
+| [`tls_certificates_cheatsheet.md`](tls_certificates_cheatsheet.md) | certbot, openssl s_client, renew |
+| [`databases_cheatsheet.md`](databases_cheatsheet.md) | postgres/mysql status, dump, логи |
+| [`docker_vps_cheatsheet.md`](docker_vps_cheatsheet.md) | compose, 127.0.0.1 bind, logs, ufw |
+| [`systemd_cheatsheet.md`](systemd_cheatsheet.md) | unit, timer, systemctl edit, journalctl -u |
+| [`permissions_cheatsheet.md`](permissions_cheatsheet.md) | chmod, chown, namei, www-data/nginx |
+| [`network_diagnostics_cheatsheet.md`](network_diagnostics_cheatsheet.md) | ip, ss, dig, curl, SG+ufw |
+| [`jq_cheatsheet.md`](jq_cheatsheet.md) | JSON, journalctl -o json, docker logs |
 
 Полный кейс и таблицы команд: [`seek_and_destroy.md`](seek_and_destroy.md).
 
@@ -372,6 +419,5 @@ sudo systemctl disable СЛУЖБА
 
 ## Планы по развитию
 
-- Раздел по OOM и нехватке памяти (`dmesg`, `journalctl -k`, `grep -i oom`).
-- Интерпретация load average относительно `nproc`.
 - При необходимости — перевод основных разделов на английский для международных команд.
+- Углублённые темы по желанию: Kubernetes, Git на сервере, hardening CIS, PostgreSQL tuning.

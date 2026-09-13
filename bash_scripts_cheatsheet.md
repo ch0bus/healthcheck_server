@@ -482,6 +482,9 @@ shift $((OPTIND - 1))                         # positional args: $@
 
 ## 12. Cron и systemd
 
+Подробнее unit/timer: [systemd_cheatsheet.md](systemd_cheatsheet.md).
+
+
 ### Что это
 
 | | **Cron** | **Systemd timer** |
