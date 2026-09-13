@@ -2,7 +2,7 @@
 
 ← [README](README.md) · основы: [linux_install_and_basics.md](linux_install_and_basics.md) · SSH: [ssh_cheatsheet.md](ssh_cheatsheet.md) · vim: [vim_cheatsheet.md](vim_cheatsheet.md)
 
-**Bash** — стандартная оболочка на Ubuntu/Debian и многих VPS. Персональные настройки живут в домашнем каталоге; системные — в `/etc`.
+**Bash** — стандартная оболочка на Ubuntu/Debian и многих VPS. Персональные настройки живут в домашнем каталоге; системные — в `/etc`. **Скрипты** (cron, `/usr/local/bin`) — [bash_scripts_cheatsheet.md](bash_scripts_cheatsheet.md); `.bashrc` на них почти не влияет.
 
 В блоках `bash` комментарии после `#` — пояснения; в терминал можно вставлять всю строку (хвост после `#` shell игнорирует).
 

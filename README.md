@@ -32,6 +32,7 @@
 - [`firewall_cheatsheet.md`](firewall_cheatsheet.md) — ufw, nftables, firewalld, SG, fail2ban.
 - [`backups_cheatsheet.md`](backups_cheatsheet.md) — стратегия 3-2-1, tar/rsync, БД, restic, cron.
 - [`archives_compression_cheatsheet.md`](archives_compression_cheatsheet.md) — tar, gzip/xz/zstd, zip, zgrep.
+- [`bash_scripts_cheatsheet.md`](bash_scripts_cheatsheet.md) — bash‑скрипты: set -euo, trap, flock, примеры.
 
 ---
 
@@ -251,6 +252,7 @@ sudo systemctl disable СЛУЖБА
 | [`firewall_cheatsheet.md`](firewall_cheatsheet.md) | ufw/nft/firewalld, VPS SG, Docker/FORWARD, SSH lockout |
 | [`backups_cheatsheet.md`](backups_cheatsheet.md) | 3-2-1, tar/rsync, pg_dump/mysqldump, restic/borg, restore |
 | [`archives_compression_cheatsheet.md`](archives_compression_cheatsheet.md) | tar, gzip/bzip2/xz/zstd, zip, pipes, checksum |
+| [`bash_scripts_cheatsheet.md`](bash_scripts_cheatsheet.md) | set -euo, функции, trap/flock, healthcheck, retry, cron |
 
 Полный кейс и таблицы команд: [`seek_and_destroy.md`](seek_and_destroy.md).
 
