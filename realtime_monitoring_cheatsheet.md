@@ -1,6 +1,6 @@
 # Мониторинг в реальном времени
 
-← [README](README.md) · [расширенный healthcheck](server_healthcheck_full.md)
+← [README](README.md) · [расширенный healthcheck](server_healthcheck_full.md) · [htop](htop_cheatsheet.md) · [tmux](tmux_cheatsheet.md)
 
 ## 1. htop
 
@@ -52,13 +52,29 @@ vmstat 1 10
 
 Комбинированные мониторы нескольких метрик.
 
+## 6. watch — периодический вывод команды
+
+```bash
+watch -n 1 'ps aux --sort=-%cpu | head -15'   # каждую 1 с — топ CPU (-n интервал в секундах)
+watch -n 2 df -hT                             # место на дисках
+watch -n 5 'ss -s'                            # сводка сокетов
+```
+
+**Ctrl+C** — выход. **`watch -d`** — подсветка изменившихся строк (diff).
+
+Ограничение: при **обрыве SSH** `watch` завершится. Долгий мониторинг на VPS — лучше окно в **tmux** ([tmux_cheatsheet.md](tmux_cheatsheet.md)) или `htop` / `iotop` в интерактиве.
+
+Тот же приём в [server_healthcheck_quick.md](server_healthcheck_quick.md).
+
 ---
 
 ## Минимальный набор «смотреть прямо сейчас»
 
 | Задача | Утилита |
 |--------|---------|
-| CPU / память / процессы | `htop` |
+| CPU / память / процессы | `htop` ([шпаргалка](htop_cheatsheet.md)) |
 | Диск | `iotop`, `iostat` |
 | Сеть (соединения) | `iftop` |
 | Сеть (общий трафик) | `nload` |
+| Периодически одна команда | `watch` |
+| Сессия переживает disconnect | `tmux` на сервере |

@@ -1,6 +1,6 @@
 # Типовые инциденты
 
-← [README](README.md) · [логи](logs_cheatsheet.md) · [seek and destroy](seek_and_destroy.md)
+← [README](README.md) · [логи](logs_cheatsheet.md) · [htop](htop_cheatsheet.md) · [seek and destroy](seek_and_destroy.md)
 
 ## 1. Переполненный диск
 
@@ -80,7 +80,7 @@ cat /etc/resolv.conf
 
 ```bash
 uptime
-htop
+htop                            # см. htop_cheatsheet.md — F6, F9, load vs nproc
 ps aux --sort=-%cpu | head -15
 ps aux --sort=-%mem | head -15
 ```

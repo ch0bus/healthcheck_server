@@ -204,7 +204,7 @@ Reload из shell **вне** tmux:
 tmux source-file ~/.tmux.conf
 ```
 
-Dotfiles: [bashrc_cheatsheet.md](bashrc_cheatsheet.md), [routine_automation_scripts.md](routine_automation_scripts.md) § dotfiles.
+Dotfiles: [bashrc_cheatsheet.md](bashrc_cheatsheet.md), бэкап конфигов — [routine_automation_scripts.md](routine_automation_scripts.md) §15.12.
 
 ---
 

@@ -270,6 +270,8 @@ sudo systemctl disable СЛУЖБА
 
 ## Индекс команд
 
+Краткий список **типичных команд на VPS**; утилиты вроде `awk`, `ranger`, `restic`, ufw — в [таблице шпаргалок](#дополнительные-шпаргалки) выше.
+
 ### Системное состояние
 
 - `uptime`
@@ -293,6 +295,10 @@ sudo systemctl disable СЛУЖБА
 - `tmux new -A -s ИМЯ`
 - `tmux ls`
 - `tmux attach -t ИМЯ`
+
+### Мониторинг (watch)
+
+- `watch -n 1 'ps aux --sort=-%cpu | head -15'`
 
 ### Процессы
 
