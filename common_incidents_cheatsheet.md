@@ -26,7 +26,7 @@ du -xhd1 /var | sort -h
 
 ### Быстрые действия (осторожно)
 
-Не чистите journal и архивы логов на production без понимания последствий; при сомнении — `du -xhd1 /var/log | sort -h` и snapshot.
+Не чистите journal и архивы логов на production без понимания последствий; при сомнении — `du -xhd1 /var/log | sort -h`, snapshot или бэкап ([backups_cheatsheet.md](backups_cheatsheet.md)).
 
 ```bash
 sudo rm /var/log/*.gz              # только если понятно, что удаляете

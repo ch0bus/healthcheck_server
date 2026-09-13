@@ -30,6 +30,7 @@
 - [`ssh_cheatsheet.md`](ssh_cheatsheet.md) — SSH: ключи, `sshd`, `~/.ssh/config`, scp/rsync/sftp.
 - [`nfs_samba_cheatsheet.md`](nfs_samba_cheatsheet.md) — NFS и Samba: экспорт, mount, fstab, права.
 - [`firewall_cheatsheet.md`](firewall_cheatsheet.md) — ufw, nftables, firewalld, SG, fail2ban.
+- [`backups_cheatsheet.md`](backups_cheatsheet.md) — стратегия 3-2-1, tar/rsync, БД, restic, cron.
 
 ---
 
@@ -247,6 +248,7 @@ sudo systemctl disable СЛУЖБА
 | [`ssh_cheatsheet.md`](ssh_cheatsheet.md) | Ключи, sshd, config, scp/sftp/rsync, туннели, отладка |
 | [`nfs_samba_cheatsheet.md`](nfs_samba_cheatsheet.md) | NFSv4 exports, Samba smb.conf, CIFS mount, ufw |
 | [`firewall_cheatsheet.md`](firewall_cheatsheet.md) | ufw/nft/firewalld, VPS SG, Docker/FORWARD, SSH lockout |
+| [`backups_cheatsheet.md`](backups_cheatsheet.md) | 3-2-1, tar/rsync, pg_dump/mysqldump, restic/borg, restore |
 
 Полный кейс и таблицы команд: [`seek_and_destroy.md`](seek_and_destroy.md).
 
