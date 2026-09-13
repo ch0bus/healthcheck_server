@@ -1,6 +1,6 @@
 # Vim: шпаргалка для сервера и конфигов
 
-← [README](README.md) · основы shell: [linux_install_and_basics.md](linux_install_and_basics.md)
+← [README](README.md) · основы shell: [linux_install_and_basics.md](linux_install_and_basics.md) · [bashrc](bashrc_cheatsheet.md)
 
 Vim есть почти на каждом Linux (в т.ч. minimal/server). Удобен для правки `/etc/nginx/nginx.conf`, unit‑файлов, скриптов по SSH.
 

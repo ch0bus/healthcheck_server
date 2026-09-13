@@ -315,7 +315,7 @@ type cd                      # builtin, alias или file для cd
 help cd                      # справка по встроенной команде bash
 ```
 
-Редактор **vim** на сервере: [vim_cheatsheet.md](vim_cheatsheet.md).
+Редактор **vim** на сервере: [vim_cheatsheet.md](vim_cheatsheet.md). Настройка shell: [bashrc_cheatsheet.md](bashrc_cheatsheet.md).
 
 ---
 
