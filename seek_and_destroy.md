@@ -19,7 +19,7 @@
 | `ps aux --sort=-%mem` + `head -15` | По памяти |
 | `ps aux --sort=-%cpu` + `head -15` | По CPU |
 | `top -b -n 1` + `head -20` | Снимок top |
-| `htop` | Интерактивно (если установлен) |
+| `htop` | Интерактивно — [htop_cheatsheet.md](htop_cheatsheet.md) |
 
 ## Шаг 2: источник процесса
 

@@ -23,6 +23,7 @@
 - [`seek_and_destroy.md`](seek_and_destroy.md) — кейс `io.elementary.appcenter` и алгоритм поиска/удаления «прожорливых» процессов.
 - [`logs_cheatsheet.md`](logs_cheatsheet.md) — анализ логов.
 - [`realtime_monitoring_cheatsheet.md`](realtime_monitoring_cheatsheet.md) — мониторинг в реальном времени.
+- [`htop_cheatsheet.md`](htop_cheatsheet.md) — htop: экран, клавиши, F9, сценарии на сервере.
 - [`common_incidents_cheatsheet.md`](common_incidents_cheatsheet.md) — типовые инциденты.
 - [`linux_install_and_basics.md`](linux_install_and_basics.md) — установка Ubuntu‑подобных систем, ФС, ориентирование в Linux.
 - [`vim_cheatsheet.md`](vim_cheatsheet.md) — Vim: режимы, правка конфигов, поиск, `.vimrc`.
@@ -245,6 +246,7 @@ sudo systemctl disable СЛУЖБА
 |------|------------|
 | [`logs_cheatsheet.md`](logs_cheatsheet.md) | `journalctl`, `/var/log`, nginx/postgresql, `grep`/`zgrep` |
 | [`realtime_monitoring_cheatsheet.md`](realtime_monitoring_cheatsheet.md) | `htop`, `iotop`, `iftop`, `nload`, `watch` |
+| [`htop_cheatsheet.md`](htop_cheatsheet.md) | htop: F1–F10, Setup, дерево, фильтр, kill, `-u`/`-p` |
 | [`common_incidents_cheatsheet.md`](common_incidents_cheatsheet.md) | Диск, nginx, DNS, нагрузка, сервис после ребута, чек‑лист инцидента |
 | [`linux_install_and_basics.md`](linux_install_and_basics.md) | Установка Ubuntu/Mint/Pop, разметка, ext4/swap/LVM, FHS, shell |
 | [`vim_cheatsheet.md`](vim_cheatsheet.md) | Режимы, навигация, `:s`, split, sudoedit, минимальный `.vimrc` |

@@ -97,7 +97,7 @@ iftop
 nload
 ```
 
-См. [realtime_monitoring_cheatsheet.md](realtime_monitoring_cheatsheet.md).
+См. [realtime_monitoring_cheatsheet.md](realtime_monitoring_cheatsheet.md), подробно про **htop**: [htop_cheatsheet.md](htop_cheatsheet.md).
 
 ## Минимальный набор (как отдельная памятка)
 
